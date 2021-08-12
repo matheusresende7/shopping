@@ -1,18 +1,18 @@
 class ProductResultEntity {
 
-  final int id;
+  final String id;
   final String createdAt;
   final String name;
   final String color;
-  final double price;
+  final String price;
   final int discount;
   final int rating;
   final bool favorite;
   final String description;
   final String image;
   final String department;
-  final List sizes;
-  final List payments;
+  final String sizes;
+  final String payments;
 
   ProductResultEntity({
     this.id,

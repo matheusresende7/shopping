@@ -21,6 +21,6 @@ class SearchProductRepositoryImpl implements ISearchProductRepository {
     } catch (e) {
       return Left(DatasourceError());
     }
-    
+
   }
 }
