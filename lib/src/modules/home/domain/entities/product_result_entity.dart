@@ -13,6 +13,7 @@ class ProductResultEntity {
   final String department;
   final String sizes;
   final String payments;
+  final bool freeDelivery;
 
   ProductResultEntity({
     this.id,
@@ -27,7 +28,8 @@ class ProductResultEntity {
     this.image,
     this.department,
     this.sizes,
-    this.payments
+    this.payments,
+    this.freeDelivery,
   });
 
 }

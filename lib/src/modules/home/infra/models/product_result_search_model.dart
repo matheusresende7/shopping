@@ -15,6 +15,7 @@ class ProductResultSearchModel extends ProductResultEntity {
   final String department;
   final String sizes;
   final String payments;
+  final bool freeDelivery;
 
   ProductResultSearchModel({
     this.id,
@@ -29,7 +30,8 @@ class ProductResultSearchModel extends ProductResultEntity {
     this.image,
     this.department,
     this.sizes,
-    this.payments
+    this.payments,
+    this.freeDelivery,
   });
 
 
@@ -48,7 +50,8 @@ class ProductResultSearchModel extends ProductResultEntity {
         image: json['image'],
         department: json['department'],
         sizes: json['sizes'],
-        payments: json['payments']
+        payments: json['payments'],
+        freeDelivery: json['freeDelivery']
     );
   }
 
@@ -69,6 +72,7 @@ class ProductResultSearchModel extends ProductResultEntity {
       department: department,
       sizes: sizes,
       payments: payments,
+      freeDelivery: freeDelivery,
     };
   }
 

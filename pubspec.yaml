@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   get:
   dio: ^3.0.9
+  transparent_image: ^2.0.0
   dartz:
 
 dev_dependencies:
