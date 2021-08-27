@@ -1,18 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopping/src/core/constants/icons_data.dart';
+import 'package:shopping/src/core/constants/images.dart';
+import 'package:shopping/src/core/constants/strings.dart';
 import 'package:shopping/src/core/styles/text_sizes.dart';
-import 'package:shopping/src/core/widgets/text_default.dart';
+import 'package:shopping/src/core/widgets/buttons/text_button_default.dart';
+import 'package:shopping/src/core/widgets/snackbars/snackbar_default.dart';
+import 'package:shopping/src/core/widgets/texts/text_default.dart';
+import 'package:shopping/src/modules/home/presenter/controllers/home_controller.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CardProduct extends StatelessWidget {
 
   final String text;
-  final IconData icon;
 
   CardProduct ({
     this.text,
-    this.icon,
   });
+
+  final controller = HomeController();//fazer de outra forma sem instanciar isso
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +42,7 @@ class CardProduct extends StatelessWidget {
                   Center(
                     child: FadeInImage.memoryNetwork(
                       placeholder: kTransparentImage,
-                      //image: 'https://cf.shopee.com.br/file/48d484e9a80aa215b1fdf3f3ac215715_tn',
-                      image: 'https://static.netshoes.com.br/produtos/tenis-nike-revolution-5-feminino/26/HZM-1729-026/HZM-1729-026_zoom1.jpg?ts=1569489067&ims=544x',
+                      image: Images.blusaFeminina,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -49,7 +54,7 @@ class CardProduct extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(5)),
-                          color: Theme.of(context).indicatorColor,
+                          color: Theme.of(context).errorColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
@@ -71,7 +76,7 @@ class CardProduct extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                       child: GestureDetector(
                         child: Icon(
-                          Icons.favorite_border,
+                          IconsData.favorite,
                           color: Colors.grey[400],
                           size: 28,
                         ),
@@ -95,7 +100,7 @@ class CardProduct extends StatelessWidget {
                     children: [
 
                       Icon(
-                        Icons.star,
+                        IconsData.rating,
                         color: Colors.yellow[600],
                         size: 23,
                       ),
@@ -116,7 +121,7 @@ class CardProduct extends StatelessWidget {
               ),
 
               TextDefault(
-                text: 'Frete grátis'.toUpperCase(),
+                text: Strings.freteGratis.toUpperCase(),
                 color: Theme.of(context).indicatorColor,
                 fontSize: TextSizes.xSmall,
                 fontWeight: FontWeight.w600,
@@ -141,29 +146,16 @@ class CardProduct extends StatelessWidget {
 
               SizedBox(height: 20,),
 
-              Container(
-                height: 50,
-                child: TextButton(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextDefault(
-                        text: 'COMPRAR',
-                        color: Theme.of(context).accentColor,
-                        fontSize: TextSizes.large,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ],
-                  ),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  onPressed: () {},
-                ),
+              TextButtonDefault(
+                text: Strings.comprar.toUpperCase(),
+                onPressed: () {
+                  controller.addProductInCart();
+                  SnackbarDefault(
+                    message: Strings.produtoAddComSucesso,
+                    icon: IconsData.cart,
+                    backgroundColor: Theme.of(context).indicatorColor,
+                  );
+                },
               ),
 
             ],

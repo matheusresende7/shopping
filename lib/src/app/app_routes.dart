@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:shopping/src/core/constants/routes.dart';
 import 'package:shopping/src/modules/home/presenter/views/home.dart';
 
 class AppRoutes {
@@ -10,7 +11,7 @@ class AppRoutes {
   static List<GetPage> routes = [
 
     getPageRightToLeft(
-      name: '/',
+      name: Routes.home,
       page: () => Home(),
     ),
 

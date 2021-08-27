@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/src/core/constants/fonts.dart';
 import 'package:shopping/src/core/styles/text_sizes.dart';
 
 class TextDefault extends StatelessWidget {
@@ -26,7 +27,7 @@ class TextDefault extends StatelessWidget {
         color: this.color ?? Theme.of(context).primaryColor,
         fontSize: this.fontSize ?? TextSizes.xxLarge,
         fontWeight: this.fontWeight ?? FontWeight.w500,
-        fontFamily: 'Roboto Slab',
+        fontFamily: Fonts.robotoSlab,
         letterSpacing: 1,
         decoration: this.decoration ?? TextDecoration.none,
       ),
